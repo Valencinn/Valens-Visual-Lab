@@ -2,20 +2,17 @@
    CSS Reset – Valen Visual Lab
    ============================== */
 
-/* Box sizing rules */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Remove default margin */
 * {
   margin: 0;
   padding: 0;
 }
 
-/* Set core body defaults */
 html,
 body {
   height: 100%;
@@ -26,7 +23,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Media elements */
 img,
 picture,
 video,
@@ -36,7 +32,6 @@ svg {
   max-width: 100%;
 }
 
-/* Form elements inherit font */
 input,
 button,
 textarea,
@@ -44,26 +39,22 @@ select {
   font: inherit;
 }
 
-/* Remove button styles */
 button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-/* Remove list styles */
 ul,
 ol {
   list-style: none;
 }
 
-/* Anchor defaults */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Prevent text overflow */
 p,
 h1,
 h2,
