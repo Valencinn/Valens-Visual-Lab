@@ -1,0 +1,116 @@
+[
+  {
+    "id": "bubble-sort",
+    "name": "Bubble Sort",
+    "category": "Sorting",
+    "paradigm": ["Brute Force"],
+    "difficulty": "Beginner",
+    "description": "A simple comparison-based sorting algorithm.",
+    "timeComplexity": {
+      "best": "O(n)",
+      "average": "O(n²)",
+      "worst": "O(n²)"
+    },
+    "spaceComplexity": "O(1)",
+    "stable": true,
+    "inPlace": true,
+    "prerequisites": ["Arrays"],
+    "visualizable": true,
+    "status": "done"
+  },
+  {
+    "id": "merge-sort",
+    "name": "Merge Sort",
+    "category": "Sorting",
+    "paradigm": ["Divide and Conquer", "Recursion"],
+    "difficulty": "Intermediate",
+    "description": "A stable, divide-and-conquer sorting algorithm that recursively splits the array and merges sorted subarrays.",
+    "timeComplexity": {
+      "best": "O(n log n)",
+      "average": "O(n log n)",
+      "worst": "O(n log n)"
+    },
+    "spaceComplexity": "O(n)",
+    "stable": true,
+    "inPlace": false,
+    "prerequisites": ["Recursion", "Arrays"],
+    "visualizable": true,
+    "status": "planned"
+  },
+  {
+    "id": "quick-sort",
+    "name": "Quick Sort",
+    "category": "Sorting",
+    "paradigm": ["Divide and Conquer", "Recursion"],
+    "difficulty": "Intermediate",
+    "description": "An efficient, comparison-based sorting algorithm that partitions the array around a pivot.",
+    "timeComplexity": {
+      "best": "O(n log n)",
+      "average": "O(n log n)",
+      "worst": "O(n²)"
+    },
+    "spaceComplexity": "O(log n)",
+    "stable": false,
+    "inPlace": true,
+    "prerequisites": ["Recursion", "Arrays"],
+    "visualizable": true,
+    "status": "planned"
+  },
+  {
+    "id": "dijkstra",
+    "name": "Dijkstra's Algorithm",
+    "category": "Graph",
+    "paradigm": ["Greedy"],
+    "difficulty": "Advanced",
+    "description": "An algorithm for finding the shortest paths between nodes in a graph.",
+    "timeComplexity": {
+      "best": "O((V + E) log V)",
+      "average": "O((V + E) log V)",
+      "worst": "O((V + E) log V)"
+    },
+    "spaceComplexity": "O(V)",
+    "stable": false,
+    "inPlace": false,
+    "prerequisites": ["Graphs", "Priority Queues"],
+    "visualizable": true,
+    "status": "planned"
+  },
+  {
+    "id": "fibonacci-recursion",
+    "name": "Fibonacci (Recursion)",
+    "category": "Mathematical",
+    "paradigm": ["Recursion"],
+    "difficulty": "Beginner",
+    "description": "A simple recursive algorithm to compute Fibonacci numbers.",
+    "timeComplexity": {
+      "best": "O(2^n)",
+      "average": "O(2^n)",
+      "worst": "O(2^n)"
+    },
+    "spaceComplexity": "O(n)",
+    "stable": false,
+    "inPlace": false,
+    "prerequisites": ["Recursion"],
+    "visualizable": false,
+    "status": "done"
+  },
+  {
+    "id": "binary-search",
+    "name": "Binary Search",
+    "category": "Searching",
+    "paradigm": ["Divide and Conquer"],
+    "difficulty": "Beginner",
+    "description": "An efficient algorithm for finding an item from a sorted list of items.",
+    "timeComplexity": {
+      "best": "O(1)",
+      "average": "O(log n)",
+      "worst": "O(log n)"
+    },
+    "spaceComplexity": "O(1)",
+    "stable": false,
+    "inPlace": true,
+    "prerequisites": ["Arrays", "Sorting"],
+    "visualizable": true,
+    "status": "done"
+  }
+]
