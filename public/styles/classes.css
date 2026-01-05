@@ -4,10 +4,25 @@
          md = medium
          lg = large */
 
+
+/*bg*/
+
+.bg-dark {
+  background-color: var(--bg-primary);
+}
+
+.text-light {
+  color: var(--text-primary);
+}
+
 /* Flexbox and Grid Layouts */
 
 .flex {
   display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .inline-flex {
@@ -79,3 +94,16 @@
 .shadow-sm {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+
+.gap-sm {
+  gap: 0.5rem;
+}
+
+.gap-md {
+  gap: 1rem;
+}
+
+.gap-lg {
+  gap: 2rem;
+}
+
