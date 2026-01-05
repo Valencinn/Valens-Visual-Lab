@@ -6,8 +6,55 @@
     <title>Document</title>
     <link rel="stylesheet" href="/public/styles/reset.css">
     <link rel="stylesheet" href="/public/styles/base.css">
+    <link rel="stylesheet" href="/public/styles/layout.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet"
+    />
 </head>
-<body>
-    
+<body class="bg-dark text-light">
+
+  <!-- NAVBAR -->
+  <header class="nav container flex between center-y">
+    <div class="flex center-y gap-sm">
+      <span class="logo">Valen’s Visual Lab</span>
+    </div>
+
+    <nav class="flex center-y gap-md hide-sm">
+      <a href="#" class="nav-link">Algorithms</a>
+      <a href="#" class="nav-link">Visuals</a>
+      <a href="#" class="nav-link">About</a>
+      <a href="#" class="nav-link">GitHub</a>
+    </nav>
+
+    <div class="flex center-y gap-sm">
+      <a href="#" class="btn ghost">Log in</a>
+      <a href="#" class="btn primary">Start</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="hero container">
+    <h1 class="hero-title">
+      <!-- ESCRIBÍ ACÁ TU TEXTO PRINCIPAL -->
+        Visualize algorithms.
+        Understand complexity. <br>
+        Learn by seeing.
+    </h1>
+
+    <p class="hero-subtitle">
+      <!-- ESCRIBÍ ACÁ TU DESCRIPCIÓN -->
+      Interactive visualizations to explore how algorithms work, step by step.
+    </p>
+
+    <div class="flex gap-sm mt-lg">
+      <a href="#" class="btn primary">Start exploring</a>
+      <a href="#" class="btn ghost">View algorithms →</a>
+    </div>
+  </main>
+
 </body>
+
 </html>
