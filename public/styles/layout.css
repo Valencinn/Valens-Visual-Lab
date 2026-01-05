@@ -22,9 +22,10 @@
   height: 72px;
 }
 
-.logo {
-  font-weight: 600;
-  letter-spacing: -0.02em;
+.logo img {
+  height: 70px;   
+  width: auto;
+  display: block;
 }
 
 .nav-link {
