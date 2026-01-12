@@ -15,7 +15,7 @@
   color: var(--text-primary);
 }
 
-/* Flexbox and Grid Layouts */
+/* flexbox and grid */
 
 .flex {
   display: flex;
@@ -45,7 +45,7 @@
 .column {
   flex-direction: column;
 }
-/* Margin */
+/* margin */
 .mt-sm { margin-top: 0.5rem; }
 .mt-md { margin-top: 1rem; }
 .mt-lg { margin-top: 2rem; }
@@ -54,7 +54,7 @@
 .mb-md { margin-bottom: 1rem; }
 .mb-lg { margin-bottom: 2rem; }
 
-/* Padding */
+/* padding */
 .p-sm { padding: 0.5rem; }
 .p-md { padding: 1rem; }
 .p-lg { padding: 2rem; }
