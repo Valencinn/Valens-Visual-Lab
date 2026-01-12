@@ -10,14 +10,21 @@ This project implements visual representations of algorithms and DSA theory.
 ✨ Features
 
 ✔️ Minimal website aesthetics
+
 ✔️ CRUD practice
+
 ✔️ Admin/user practice
+
 ✔️ Clean project structure
+
 ✔️ Full frontend experience
 
 🛠️ Technologies Used
 
 HTML5
+
 TypeScript
+
 CSS
+
 JSON
