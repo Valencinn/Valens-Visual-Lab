@@ -1,8 +1,12 @@
 /* Utility Classes */
 
-/*nota: sm = small
-         md = medium
-         lg = large */
+/*    notaciones:   
+          sm = small
+          md = medium
+          lg = large 
+          
+          paleta de colores: mifta hair nighttime Color Palette
+*/
 
 
 /*bg*/
@@ -109,12 +113,12 @@
 
 /* Theme variables & base reset */
 :root{
-  --bg-primary: #071129;
-  --bg-surface: #071624;
+  --bg-primary: #121212;
+  --bg-surface: 	#0a0a0a;
   --text-primary: #e6eef6;
-  --muted: #9fb0c2;
-  --accent: #7dd3fc;
-  --accent-2: #60a5fa;
+  --muted: #bcbcbc;
+  --accent: #3d3d5c;
+  --accent-2: #1e1e2e;
   --glass: rgba(255,255,255,0.03);
   --radius: 8px;
   --max-width: 1100px;
@@ -125,7 +129,7 @@ html,body{height:100%}
 body{
   margin:0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg,var(--bg-primary), #031026 60%);
+  background: #2b2525;
   color:var(--text-primary);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -219,7 +223,6 @@ body{
 .card h3{ margin:0 0 0.5rem 0; font-size:1.05rem; font-weight:700; color:var(--text-primary) }
 .card p{ margin:0; color:var(--muted); font-size:0.95rem }
 
-/* Minimal linear list for algorithm steps */
 .list-linear { display:flex; flex-direction:column; gap:0.5rem; }
 .step {
   display:flex;
@@ -257,9 +260,50 @@ body{
 }
 .btn:hover{ transform: translateY(-1px) }
 .btn.primary {
-  background: linear-gradient(90deg,var(--accent),var(--accent-2));
-  color:#021022;
+  background: var(--text-primary);
+  color: var(--accent-2);
   border: none;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.7rem;
+
+  background: var(--glass);
+  color: var(--text-primary);
+
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+
+  font-weight: 600;
+  text-decoration: none; 
+  cursor: pointer;
+
+  transition: 
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.08s ease,
+    color 0.15s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.14);
+  transform: translateY(-1px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0);
+  background: rgba(255,255,255,0.04);
+}
+.btn-ghost.accent {
+  color: var(--accent);
+}
+
+.btn-ghost.muted {
+  color: var(--muted);
 }
 
 /* Footer */
