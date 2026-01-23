@@ -1,4 +1,3 @@
-"use strict";
 const container = document.getElementById("algorithmsContainer");
 async function loadData() {
     try {

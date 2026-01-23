@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/public/styles/reset.css">
+    <link rel="stylesheet" href="/public/styles/classes.css">
+    <link rel="stylesheet" href="/public/styles/base.css">
+    <link rel="stylesheet" href="/public/styles/layout.css">
+    <link rel="stylesheet" href="/public/styles/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="bg-dark text-light">
+
+    <!-- NAVBAR -->
+    <header class="nav container flex between center-y">
+        <a class="logo" href="index.html">
+            <img src="./images/logopng.png" alt="Algorithm Visual Lab logo">
+        </a>
+        <nav class="flex-center gap-md hide-sm">
+            <a href="./algorithms.html" class="nav-link">Algorithms</a>
+            <a href="./admin.html" class="nav-link active">Admin</a>
+            <a href="./about.html" class="nav-link">About</a>
+            <a href="https://github.com/Valencinn/Valens-Visual-Lab" class="nav-link">GitHub</a>
+        </nav>
+        <div class="flex-center gap-sm">
+            <button id="logoutBtn" class="btn ghost" style="display:none;">Logout</button>
+        </div>
+    </header>
+
+    <!-- LOGIN SECTION -->
+    <div id="loginContainer" class="admin-login">
+        <div class="admin-login-box">
+            <h2>Admin Login</h2>
+            <p class="text-sm text-muted">Ingrese credenciales de administrador</p>
+
+            <form id="loginForm" class="flex flex-col gap-md">
+                <div class="flex flex-col gap-xs">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required placeholder="admin@example.com" class="input">
+                </div>
+
+                <div class="flex flex-col gap-xs">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required placeholder="••••••••" class="input">
+                </div>
+
+                <button type="submit" class="btn primary full-width">Iniciar Sesión</button>
+            </form>
+
+            <div id="loginError" class="error-message" style="display:none;"></div>
+
+            <div class="admin-login-info">
+                <p><strong>Demo Admin Credentials:</strong></p>
+                <p>Email: admin@example.com</p>
+                <p>Password: admin123</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL  -->
+    <div id="adminPanel" class="admin-panel" style="display:none;">
+        <div class="flex gap-lg admin-container">
+            <!-- SIDEBAR -->
+            <aside class="admin-sidebar">
+                <div class="flex flex-col gap-md pb-lg border-b">
+                    <h3>Admin Panel</h3>
+                    <span id="adminName" class="text-sm text-muted"></span>
+                </div>
+
+                <nav class="flex flex-col gap-sm">
+                    <button class="admin-nav-btn active" data-section="users">
+                        👥 Users Management
+                    </button>
+                    <button class="admin-nav-btn" data-section="content">
+                        📚 Content Management
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="flex-1">
+                <!-- USERS SECTION -->
+                <section id="usersSection" class="admin-section active">
+                    <div class="flex between center-y mb-lg">
+                        <h2>Users Management</h2>
+                        <button class="btn primary" id="addUserBtn">+ Add New User</button>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Subscribed</th>
+                                    <th>Registered</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersList"></tbody>
+                        </table>
+                    </div>
+
+                    <div id="userModal" class="modal" style="display:none;">
+                        <div class="modal-content">
+                            <div class="flex between center-y pb-md border-b">
+                                <h3 id="userModalTitle">Add New User</h3>
+                                <button class="close-btn" id="closeUserModal">&times;</button>
+                            </div>
+
+                            <form id="userForm" class="flex flex-col gap-md">
+                                <div class="flex flex-col gap-xs">
+                                    <label for="userName">Name:</label>
+                                    <input type="text" id="userName" required class="input">
+                                </div>
+
+                                <div class="flex flex-col gap-xs">
+                                    <label for="userEmail">Email:</label>
+                                    <input type="email" id="userEmail" required class="input">
+                                </div>
+
+                                <div class="flex flex-col gap-xs">
+                                    <label for="userPassword">Password:</label>
+                                    <input type="password" id="userPassword" class="input">
+                                    <small class="text-muted">Leave empty to keep current password</small>
+                                </div>
+
+                                <div class="flex items-center gap-sm">
+                                    <input type="checkbox" id="userIsAdmin">
+                                    <label for="userIsAdmin">Is Admin</label>
+                                </div>
+
+                                <div class="flex items-center gap-sm">
+                                    <input type="checkbox" id="userIsSubscribed" checked>
+                                    <label for="userIsSubscribed">Is Subscribed</label>
+                                </div>
+
+                                <div class="flex gap-md">
+                                    <button type="button" class="btn ghost" id="cancelUserBtn">Cancel</button>
+                                    <button type="submit" class="btn primary">Save User</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONTENT SECTION -->
+                <section id="contentSection" class="admin-section">
+                    <div class="flex between center-y mb-lg">
+                        <h2>Content Management</h2>
+                        <button class="btn primary" id="addContentBtn">+ Add New Algorithm</button>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Difficulty</th>
+                                    <th>Status</th>
+                                    <th>Visualizable</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="contentList"></tbody>
+                        </table>
+                    </div>
+
+                    <div id="contentModal" class="modal" style="display:none;">
+                        <div class="modal-content">
+                            <div class="flex between center-y pb-md border-b">
+                                <h3 id="contentModalTitle">Add New Algorithm</h3>
+                                <button class="close-btn" id="closeContentModal">&times;</button>
+                            </div>
+
+                            <form id="contentForm" class="flex flex-col gap-md">
+                                <div class="flex flex-col gap-xs">
+                                    <label for="contentName">Name:</label>
+                                    <input type="text" id="contentName" required class="input">
+                                </div>
+
+                                <div class="flex flex-col gap-xs">
+                                    <label for="contentCategory">Category:</label>
+                                    <input type="text" id="contentCategory" required class="input">
+                                </div>
+
+                                <div class="flex flex-col gap-xs">
+                                    <label for="contentDescription">Description:</label>
+                                    <textarea id="contentDescription" required rows="3" class="input"></textarea>
+                                </div>
+
+                                <div class="flex flex-col gap-xs">
+                                    <label for="contentDifficulty">Difficulty:</label>
+                                    <select id="contentDifficulty" required class="input">
+                                        <option value="">Select Difficulty</option>
+                                        <option value="Beginner">Beginner</option>
+                                        <option value="Intermediate">Intermediate</option>
+                                        <option value="Advanced">Advanced</option>
+                                    </select>
+                                </div>
+
+                                <div class="flex flex-col gap-xs">
+                                    <label for="contentStatus">Status:</label>
+                                    <select id="contentStatus" required class="input">
+                                        <option value="planned">Planned</option>
+                                        <option value="in-progress">In Progress</option>
+                                        <option value="done">Done</option>
+                                    </select>
+                                </div>
+
+                                <div class="flex items-center gap-sm">
+                                    <input type="checkbox" id="contentVisualizable">
+                                    <label for="contentVisualizable">Visualizable</label>
+                                </div>
+
+                                <div class="flex gap-md">
+                                    <button type="button" class="btn ghost" id="cancelContentBtn">Cancel</button>
+                                    <button type="submit" class="btn primary">Save Algorithm</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="restrictedSection" class="admin-section" style="display:none;">
+                    <div class="flex flex-col gap-md center text-center">
+                        <h2>⛔ Acceso Restringido</h2>
+                        <p>Esta pantalla es de acceso exclusivo para administradores.</p>
+                        <p>Por favor, inicie sesión con credenciales de administrador.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="/public/app-admin.js"></script>
+</body>
+
+</html>

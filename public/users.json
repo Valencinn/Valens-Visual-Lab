@@ -1,0 +1,47 @@
+[
+    {
+        "id": "admin-001",
+        "name": "Admin User",
+        "email": "admin@example.com",
+        "password": "admin123",
+        "isAdmin": true,
+        "isSubscribed": true,
+        "registerDate": "2024-01-01",
+        "likedPostIDs": []
+    },
+    {
+        "id": "user-001",
+        "name": "Juan Pérez",
+        "email": "juan@example.com",
+        "password": "password123",
+        "isAdmin": false,
+        "isSubscribed": true,
+        "registerDate": "2024-06-15",
+        "likedPostIDs": [
+            "bubble-sort",
+            "merge-sort"
+        ]
+    },
+    {
+        "id": "user-002",
+        "name": "María García",
+        "email": "maria@example.com",
+        "password": "securepass456",
+        "isAdmin": false,
+        "isSubscribed": false,
+        "registerDate": "2024-09-20",
+        "likedPostIDs": [
+            "quick-sort"
+        ]
+    },
+    {
+        "id": "user-003",
+        "name": "Carlos López",
+        "email": "carlos@example.com",
+        "password": "password789",
+        "isAdmin": false,
+        "isSubscribed": true,
+        "registerDate": "2025-01-10",
+        "likedPostIDs": []
+    }
+]
