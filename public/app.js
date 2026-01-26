@@ -11,17 +11,29 @@ async function loadData() {
         return [];
     }
 }
+
 function createCard(data) {
     const card = document.createElement("article");
     card.className = "algo-card";
+
     const difficultyClass = `difficulty-${data.difficulty.toLowerCase()}`;
+
     card.innerHTML = `
-        <span class="difficulty-badge ${difficultyClass}">${data.difficulty}</span>
-        <h3>${data.name}</h3>
-        <p class="algo-description">${data.description}</p>
-    `;
+    <div class="algo-image">
+      <img src="${data.image}" alt="${data.name}">
+    </div>
+
+    <span class="difficulty-badge ${difficultyClass}">
+      ${data.difficulty}
+    </span>
+
+    <h3>${data.name}</h3>
+    <p class="algo-description">${data.description}</p>
+  `;
+
     return card;
 }
+
 async function renderCards() {
     const items = await loadData();
     if (container) {
