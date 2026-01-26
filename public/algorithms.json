@@ -2,7 +2,7 @@
   {
     "id": "bubble-sort",
     "name": "Bubble Sort",
-    "image": "/public/images/bubble-sort.jpg",
+    "image": "./images/bubble-sort.jpg",
     "category": "Sorting",
     "paradigm": [
       "Brute Force"
@@ -26,7 +26,7 @@
   {
     "id": "merge-sort",
     "name": "Merge Sort",
-    "image": "/public/images/bubble-sort.jpg",
+    "image": "./images/bubble-sort.jpg",
     "category": "Sorting",
     "paradigm": [
       "Divide and Conquer",
@@ -52,7 +52,7 @@
   {
     "id": "quick-sort",
     "name": "Quick Sort",
-    "image": "/public/images/bubble-sort.jpg",
+    "image": "./images/bubble-sort.jpg",
     "category": "Sorting",
     "paradigm": [
       "Divide and Conquer",
@@ -78,7 +78,7 @@
   {
     "id": "dijkstra",
     "name": "Dijkstra's Algorithm",
-    "image": "/public/images/bubble-sort.jpg",
+    "image": "./images/bubble-sort.jpg",
     "category": "Graph",
     "paradigm": [
       "Greedy"
@@ -103,7 +103,7 @@
   {
     "id": "fibonacci-recursion",
     "name": "Fibonacci (Recursion)",
-    "image": "/public/images/bubble-sort.jpg",
+    "image": "./images/bubble-sort.jpg",
     "category": "Mathematical",
     "paradigm": [
       "Recursion"
@@ -127,7 +127,7 @@
   {
     "id": "binary-search",
     "name": "Binary Search",
-    "image": "/public/images/bubble-sort.jpg",
+    "image": "./images/bubble-sort.jpg",
     "category": "Searching",
     "paradigm": [
       "Divide and Conquer"
