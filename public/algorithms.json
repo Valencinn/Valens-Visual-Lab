@@ -26,7 +26,7 @@
   {
     "id": "merge-sort",
     "name": "Merge Sort",
-    "image": "./images/bubble-sort.jpg",
+    "image": "./images/merge-sort.jpg",
     "category": "Sorting",
     "paradigm": [
       "Divide and Conquer",
@@ -127,7 +127,7 @@
   {
     "id": "binary-search",
     "name": "Binary Search",
-    "image": "./images/bubble-sort.jpg",
+    "image": "./images/binary-search.jpg",
     "category": "Searching",
     "paradigm": [
       "Divide and Conquer"
