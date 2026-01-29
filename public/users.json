@@ -6,7 +6,7 @@
         "password": "admin123",
         "isAdmin": true,
         "isSubscribed": true,
-        "registerDate": "2024-01-01",
+        "registerDate": "2025-01-01",
         "likedPostIDs": []
     },
     {
@@ -16,7 +16,7 @@
         "password": "password123",
         "isAdmin": false,
         "isSubscribed": true,
-        "registerDate": "2024-06-15",
+        "registerDate": "2025-06-15",
         "likedPostIDs": [
             "bubble-sort",
             "merge-sort"
@@ -29,7 +29,7 @@
         "password": "securepass456",
         "isAdmin": false,
         "isSubscribed": false,
-        "registerDate": "2024-09-20",
+        "registerDate": "2025-09-20",
         "likedPostIDs": [
             "quick-sort"
         ]
