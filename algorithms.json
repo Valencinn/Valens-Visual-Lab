@@ -78,7 +78,7 @@
   {
     "id": "dijkstra",
     "name": "Dijkstra's Algorithm",
-    "image": "./images/bubble-sort.jpg",
+    "image": "./images/binary-search.jpg",
     "category": "Graph",
     "paradigm": [
       "Greedy"
@@ -103,7 +103,7 @@
   {
     "id": "fibonacci-recursion",
     "name": "Fibonacci (Recursion)",
-    "image": "./images/bubble-sort.jpg",
+    "image": "./images/binary-search.jpg",
     "category": "Mathematical",
     "paradigm": [
       "Recursion"

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/classes.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="bg-dark text-light">
+    <header class="nav container flex between center-y">
+        <a class="logo" href="index.html">
+            <img src="./images/logopng.png" alt="Algorithm Visual Lab logo">
+        </a>
+
+
+        <nav class="flex-center gap-md hide-sm">
+            <a href="./algorithms.html" class="nav-link">Algorithms</a>
+            <a href="" class="nav-link">Structures</a>
+            <a href="./about.html" class="nav-link">About</a>
+        </nav>
+
+        <div class="flex-center gap-sm">
+            <a href="./admin.html" class="btn ghost">Log in</a>
+            <a href="#" class="btn primary">Start</a>
+        </div>
+    </header>
+
+    <div class="container">
+
+
+        <header class="header">
+            <div class="brand">
+                <div class="logo"></div>
+                <span>Admin Panel</span>
+            </div>
+
+            <nav class="nav">
+                <span class="text-muted text-sm">Restricted</span>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h1 class="hero-title">Administration</h1>
+            <p class="hero-sub">
+                Manage users and algorithms. This area is restricted to administrators.
+            </p>
+        </section>
+
+        <section id="login" class="card mt-lg">
+            <h3 class="mb-md">Admin login</h3>
+
+            <div class="flex gap-sm flex-wrap">
+                <input id="email" type="email" placeholder="Email" class="p-sm rounded" />
+                <input id="password" type="password" placeholder="Password" class="p-sm rounded" />
+                <button id="loginBtn" class="btn primary">
+                    Login
+                </button>
+            </div>
+        </section>
+
+        <section id="restricted" class="card mt-lg hidden">
+            <h3 class="mb-sm">Access denied</h3>
+            <p class="text-muted">
+                This section is restricted to administrators only.
+            </p>
+        </section>
+
+        <section id="adminPanel" class="mt-lg hidden">
+
+            <div class="flex gap-sm mb-md">
+                <button id="showUsers" class="btn-ghost accent">
+                    View users
+                </button>
+                <button id="showContent" class="btn-ghost accent">
+                    View algorithms
+                </button>
+            </div>
+
+            <div id="list" class="list-linear"></div>
+
+        </section>
+
+    </div>
+
+    <script type="module" src="/admin.ts"></script>
+</body>
+
+</html>
