@@ -24,8 +24,8 @@ let currentAdmin: User | null = null
 const list = document.getElementById("list") as HTMLDivElement
 
 Promise.all([
-    fetch("../data/users.json").then(res => res.json() as Promise<User[]>),
-    fetch("../data/algorithms.json").then(res => res.json() as Promise<Algorithm[]>)
+    fetch("/users.json").then(res => res.json() as Promise<User[]>),
+    fetch("/algorithms.json").then(res => res.json() as Promise<Algorithm[]>)
 ]).then(([u, a]) => {
     users = u
     algorithms = a
