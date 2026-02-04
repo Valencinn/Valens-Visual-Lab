@@ -35,27 +35,14 @@
         </div>
     </header>
 
+    <main class="hero-admin container">
+        <h1 class="hero-title">Administration</h1>
+        <p class="hero-sub">
+            Manage users and algorithms. This area is restricted to administrators.
+        </p>
+    </main>
+
     <div class="container">
-
-
-        <header class="header">
-            <div class="brand">
-                <div class="logo"></div>
-                <span>Admin Panel</span>
-            </div>
-
-            <nav class="nav">
-                <span class="text-muted text-sm">Restricted</span>
-            </nav>
-        </header>
-
-        <section class="hero">
-            <h1 class="hero-title">Administration</h1>
-            <p class="hero-sub">
-                Manage users and algorithms. This area is restricted to administrators.
-            </p>
-        </section>
-
         <section id="login" class="card mt-lg">
             <h3 class="mb-md">Admin login</h3>
 
@@ -76,20 +63,68 @@
         </section>
 
         <section id="adminPanel" class="mt-lg hidden">
-
             <div class="flex gap-sm mb-md">
-                <button id="showUsers" class="btn-ghost accent">
+                <button id="showUsers" class="btn-ghost">
                     View users
                 </button>
-                <button id="showContent" class="btn-ghost accent">
+                <button id="showContent" class="btn-ghost">
                     View algorithms
+                </button>
+                <button id="addUser" class="btn-ghost">
+                    Add user
+                </button>
+                <button id="addAlgorithm" class="btn-ghost">
+                    Add algorithm
                 </button>
             </div>
 
             <div id="list" class="list-linear"></div>
 
-        </section>
+            <div id="userForm" class="card mt-md hidden">
+                <h3 id="userFormTitle" class="mb-md">Add User</h3>
+                <form id="userFormElement" class="flex flex-column gap-sm">
+                    <input type="text" id="userName" placeholder="Name" class="p-sm rounded" required />
+                    <input type="email" id="userEmail" placeholder="Email" class="p-sm rounded" required />
+                    <input type="password" id="userPassword" placeholder="Password" class="p-sm rounded" required />
+                    <label class="flex gap-sm">
+                        <input type="checkbox" id="userIsAdmin" />
+                        Is Admin
+                    </label>
+                    <label class="flex gap-sm">
+                        <input type="checkbox" id="userIsSubscribed" />
+                        Is Subscribed
+                    </label>
+                    <div class="flex gap-sm">
+                        <button type="submit" class="btn primary">Save</button>
+                        <button type="button" id="cancelUserForm" class="btn-ghost">Cancel</button>
+                    </div>
+                </form>
+            </div>
 
+            <div id="algorithmForm" class="card mt-md hidden">
+                <h3 id="algorithmFormTitle" class="mb-md">Add Algorithm</h3>
+                <form id="algorithmFormElement" class="flex flex-column gap-sm">
+                    <input type="text" id="algorithmName" placeholder="Name" class="p-sm rounded" required />
+                    <input type="text" id="algorithmCategory" placeholder="Category" class="p-sm rounded" required />
+                    <select id="algorithmDifficulty" class="p-sm rounded" required>
+                        <option value="">Select Difficulty</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                    <select id="algorithmStatus" class="p-sm rounded" required>
+                        <option value="">Select Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="draft">Draft</option>
+                    </select>
+                    <div class="flex gap-sm">
+                        <button type="submit" class="btn primary">Save</button>
+                        <button type="button" id="cancelAlgorithmForm" class="btn-ghost">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </section>
     </div>
 
     <script type="module" src="/src/admin.ts"></script>

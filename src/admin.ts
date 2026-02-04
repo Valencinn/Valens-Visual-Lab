@@ -1,3 +1,4 @@
+//creamos la estructura de datos user y algorithm
 type User = {
     id: string
     name: string
@@ -14,15 +15,18 @@ type Algorithm = {
     name: string
     category: string
     difficulty: string
-    status: string
+    status?: string
 }
-
+//que sea array para poder agregar y eliminar
 let users: User[] = []
 let algorithms: Algorithm[] = []
 let currentAdmin: User | null = null
+let editingUser: User | null = null
+let editingAlgorithm: Algorithm | null = null
 
 const list = document.getElementById("list") as HTMLDivElement
 
+//fetch de users y algoritmos
 Promise.all([
     fetch("/users.json").then(res => res.json() as Promise<User[]>),
     fetch("/algorithms.json").then(res => res.json() as Promise<Algorithm[]>)
@@ -31,6 +35,7 @@ Promise.all([
     algorithms = a
 })
 
+//boton de login
 document.getElementById("loginBtn")!.addEventListener("click", () => {
     const email = (document.getElementById("email") as HTMLInputElement).value
     const password = (document.getElementById("password") as HTMLInputElement).value
@@ -49,6 +54,7 @@ document.getElementById("loginBtn")!.addEventListener("click", () => {
     document.getElementById("adminPanel")!.style.display = "block"
 })
 
+//carga usuarios
 function renderUsers() {
     list.innerHTML = "<h2>Usuarios</h2>"
 
@@ -57,14 +63,20 @@ function renderUsers() {
         div.innerHTML = `
       <strong>${user.name}</strong> (${user.email})
       ${user.isAdmin ? "🛡️" : ""}
-      <button>Borrar</button>
+      <button class="edit-btn">Editar</button>
+      <button class="delete-btn">Borrar</button>
     `
 
-        div.querySelector("button")!.onclick = () => deleteUser(user.id)
+        const editBtn = div.querySelector(".edit-btn") as HTMLButtonElement
+        const deleteBtn = div.querySelector(".delete-btn") as HTMLButtonElement
+
+        if (editBtn) editBtn.onclick = () => editUser(user.id)
+        if (deleteBtn) deleteBtn.onclick = () => deleteUser(user.id)
         list.appendChild(div)
     })
 }
 
+//borra usuarios
 function deleteUser(id: string) {
     users = users.filter(u => u.id !== id)
 
@@ -79,6 +91,7 @@ function deleteUser(id: string) {
     renderUsers()
 }
 
+//carga algoritmos
 function renderAlgorithms() {
     list.innerHTML = "<h2>Algoritmos</h2>"
 
@@ -86,15 +99,21 @@ function renderAlgorithms() {
         const div = document.createElement("div")
         div.innerHTML = `
       <strong>${algo.name}</strong>
-      (${algo.category} - ${algo.difficulty})
-      <button>Borrar</button>
+      (${algo.category} - ${algo.difficulty}${algo.status ? ` - ${algo.status}` : ''})
+      <button class="edit-btn">Editar</button>
+      <button class="delete-btn">Borrar</button>
     `
 
-        div.querySelector("button")!.onclick = () => deleteAlgorithm(algo.id)
+        const editBtn = div.querySelector(".edit-btn") as HTMLButtonElement
+        const deleteBtn = div.querySelector(".delete-btn") as HTMLButtonElement
+
+        if (editBtn) editBtn.onclick = () => editAlgorithm(algo.id)
+        if (deleteBtn) deleteBtn.onclick = () => deleteAlgorithm(algo.id)
         list.appendChild(div)
     })
 }
 
+//borra algoritmos
 function deleteAlgorithm(id: string) {
     algorithms = algorithms.filter(a => a.id !== id)
 
@@ -111,5 +130,75 @@ function deleteAlgorithm(id: string) {
 
 document.getElementById("showUsers")!.onclick = renderUsers
 document.getElementById("showContent")!.onclick = renderAlgorithms
+document.getElementById("addUser")!.onclick = () => showUserForm()
+document.getElementById("addAlgorithm")!.onclick = () => showAlgorithmForm()
+document.getElementById("cancelUserForm")!.onclick = () => hideUserForm()
+document.getElementById("cancelAlgorithmForm")!.onclick = () => hideAlgorithmForm()
+
+//muestra usuarios del json
+function showUserForm(user?: User) {
+    const form = document.getElementById("userForm")!
+    const title = document.getElementById("userFormTitle")!
+
+    if (user) {
+        editingUser = user
+        title.textContent = "Edit User"
+            ; (document.getElementById("userName") as HTMLInputElement).value = user.name
+            ; (document.getElementById("userEmail") as HTMLInputElement).value = user.email
+            ; (document.getElementById("userPassword") as HTMLInputElement).value = user.password
+            ; (document.getElementById("userIsAdmin") as HTMLInputElement).checked = user.isAdmin
+            ; (document.getElementById("userIsSubscribed") as HTMLInputElement).checked = user.isSubscribed
+    } else {
+        editingUser = null
+        title.textContent = "Add User"
+            ; (document.getElementById("userFormElement") as HTMLFormElement).reset()
+    }
+
+    form.classList.remove("hidden")
+}
+
+//oculta usuarios del json
+function hideUserForm() {
+    document.getElementById("userForm")!.classList.add("hidden")
+    editingUser = null
+}
+
+//mostramos algortitmos
+function showAlgorithmForm(algo?: Algorithm) {
+    const form = document.getElementById("algorithmForm")!
+    const title = document.getElementById("algorithmFormTitle")!
+
+    if (algo) {
+        editingAlgorithm = algo
+        title.textContent = "Edit Algorithm"
+            ; (document.getElementById("algorithmName") as HTMLInputElement).value = algo.name
+            ; (document.getElementById("algorithmCategory") as HTMLInputElement).value = algo.category
+            ; (document.getElementById("algorithmDifficulty") as HTMLSelectElement).value = algo.difficulty
+            ; (document.getElementById("algorithmStatus") as HTMLSelectElement).value = algo.status || ""
+    } else {
+        editingAlgorithm = null
+        title.textContent = "Add Algorithm"
+            ; (document.getElementById("algorithmFormElement") as HTMLFormElement).reset()
+    }
+
+    form.classList.remove("hidden")
+}
+
+//ocultamos algoritmos
+function hideAlgorithmForm() {
+    document.getElementById("algorithmForm")!.classList.add("hidden")
+    editingAlgorithm = null
+}
+
+function editUser(id: string) {
+    const user = users.find(u => u.id === id)
+    if (user) showUserForm(user)
+}
+
+function editAlgorithm(id: string) {
+    const algo = algorithms.find(a => a.id === id)
+    if (algo) showAlgorithmForm(algo)
+}
+
 
 

@@ -57,6 +57,10 @@
   flex-direction: column;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 /* margin */
 .mt-sm {
   margin-top: 0.5rem;
@@ -151,11 +155,40 @@
   gap: 1rem;
 }
 
-.gap-lg {
-  gap: 2rem;
+.center-y {
+  align-items: center;
 }
 
-/* variables */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hide-sm {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hide-sm {
+    display: flex;
+  }
+}
+
+.nav-link {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: color .15s, background .15s, transform .08s;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.02);
+}
+
 :root {
   --bg-primary: #121212;
   --bg-surface: #0a0a0a;
@@ -247,7 +280,6 @@ body {
   font-size: 1rem;
 }
 
-/* Main grid */
 .main-grid {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -255,7 +287,6 @@ body {
   align-items: start;
 }
 
-/* Content area */
 .content {
   min-height: 60vh;
   display: flex;
@@ -263,7 +294,6 @@ body {
   gap: 1rem;
 }
 
-/* Sidebar */
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -275,7 +305,7 @@ body {
   top: 1.5rem;
 }
 
-/* Card component */
+/* cards */
 .card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
   border: 1px solid rgba(255, 255, 255, 0.03);
@@ -324,7 +354,7 @@ body {
   background: rgba(125, 211, 252, 0.06);
 }
 
-/* Buttons */
+/* botones */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -391,7 +421,35 @@ body {
   color: var(--muted);
 }
 
-/* Footer */
+.edit-btn,
+.delete-btn {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.edit-btn {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+.edit-btn:hover {
+  background: rgba(76, 175, 80, 0.3);
+}
+
+.delete-btn {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
+
+.delete-btn:hover {
+  background: rgba(244, 67, 54, 0.3);
+}
+
+/*footer*/
 .footer {
   padding: 2rem 0 1rem;
   color: var(--muted);
@@ -399,7 +457,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Small helpers */
 .link-plain {
   color: var(--accent);
   text-decoration: underline;
@@ -413,7 +470,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* Responsive */
+/* responsive*/
 @media (max-width: 900px) {
   .container {
     padding: 1rem

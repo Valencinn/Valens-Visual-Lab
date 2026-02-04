@@ -6,6 +6,12 @@
   max-width: 720px;
 }
 
+.hero-admin {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  max-width: 720px;
+}
+
 .hero-title {
   font-size: 3rem;
   font-weight: 700;
