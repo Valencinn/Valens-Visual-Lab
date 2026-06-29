@@ -1,44 +1,109 @@
-const container = document.getElementById("algorithmsContainer");
+const containers = document.querySelectorAll("[data-algorithms-container], #algorithmsContainer");
+const DATA_PATHS = ["./algorithms.json", "/algorithms.json", "./public/algorithms.json"];
+
 async function loadData() {
+  for (const path of DATA_PATHS) {
     try {
-        const response = await fetch("./algorithms.json");
-        if (!response.ok)
-            throw new Error("Error al cargar JSON");
+      const response = await fetch(path);
+
+      if (response.ok) {
         return await response.json();
+      }
+    } catch (error) {
+      console.warn(`No se pudo cargar ${path}`, error);
     }
-    catch (error) {
-        console.error(error);
-        return [];
-    }
+  }
+
+  console.error("No se pudo cargar la data de algoritmos.");
+  return [];
+}
+
+function getDifficultyClass(difficulty = "") {
+  return `difficulty-${difficulty.toLowerCase().replace(/\s+/g, "-")}`;
+}
+
+function getImagePath(image = "") {
+  return image || "./images/logopng.png";
+}
+
+function addTextElement(parent, tagName, className, text) {
+  const element = document.createElement(tagName);
+
+  if (className) {
+    element.className = className;
+  }
+
+  element.textContent = text;
+  parent.appendChild(element);
+  return element;
 }
 
 function createCard(data) {
-    const card = document.createElement("article");
-    card.className = "algo-card";
+  const card = document.createElement("a");
+  card.className = "algo-card";
+  card.href = `./algorithm.html?id=${encodeURIComponent(data.id)}`;
+  card.setAttribute("aria-label", `Open ${data.name} playground`);
 
-    const difficultyClass = `difficulty-${data.difficulty.toLowerCase()}`;
+  const imageWrapper = document.createElement("div");
+  imageWrapper.className = "algo-image";
 
-    card.innerHTML = `
-    <div class="algo-image">
-      <img src="${data.image}" alt="${data.name}">
-    </div>
+  const image = document.createElement("img");
+  image.src = getImagePath(data.image);
+  image.alt = data.name;
+  image.loading = "lazy";
+  image.onerror = () => {
+    image.onerror = null;
+    image.src = "./images/logopng.png";
+  };
 
-    <span class="difficulty-badge ${difficultyClass}">
-      ${data.difficulty}
-    </span>
+  imageWrapper.appendChild(image);
+  card.appendChild(imageWrapper);
 
-    <h3>${data.name}</h3>
-    <p class="algo-description">${data.description}</p>
-  `;
+  const meta = document.createElement("div");
+  meta.className = "algo-card-meta";
 
-    return card;
+  addTextElement(meta, "span", "algo-category", data.category);
+  addTextElement(meta, "span", `difficulty-badge ${getDifficultyClass(data.difficulty)}`, data.difficulty);
+
+  if (data.status) {
+    addTextElement(meta, "span", "algo-status", data.status);
+  }
+
+  card.appendChild(meta);
+
+  addTextElement(card, "h3", "", data.name);
+  addTextElement(card, "p", "algo-description", data.description);
+
+  if (data.timeComplexity?.average) {
+    addTextElement(card, "p", "algo-complexity", `Average: ${data.timeComplexity.average}`);
+  }
+
+  addTextElement(card, "span", "algo-link", "Open playground");
+
+  return card;
+}
+
+function renderEmptyState(container) {
+  container.innerHTML = "";
+  addTextElement(container, "p", "text-muted", "No algorithms available yet.");
 }
 
 async function renderCards() {
-    const items = await loadData();
-    if (container) {
-        container.innerHTML = "";
-        items.forEach(item => container.appendChild(createCard(item)));
+  if (!containers.length) {
+    return;
+  }
+
+  const items = await loadData();
+
+  containers.forEach((container) => {
+    if (!items.length) {
+      renderEmptyState(container);
+      return;
     }
+
+    container.innerHTML = "";
+    items.forEach((item) => container.appendChild(createCard(item)));
+  });
 }
+
 renderCards();

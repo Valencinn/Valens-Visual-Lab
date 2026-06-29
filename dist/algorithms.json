@@ -11,8 +11,8 @@
     "description": "A simple comparison-based sorting algorithm.",
     "timeComplexity": {
       "best": "O(n)",
-      "average": "O(n²)",
-      "worst": "O(n²)"
+      "average": "O(n^2)",
+      "worst": "O(n^2)"
     },
     "spaceComplexity": "O(1)",
     "stable": true,
@@ -63,7 +63,7 @@
     "timeComplexity": {
       "best": "O(n log n)",
       "average": "O(n log n)",
-      "worst": "O(n²)"
+      "worst": "O(n^2)"
     },
     "spaceComplexity": "O(log n)",
     "stable": false,
