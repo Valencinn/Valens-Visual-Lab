@@ -2,7 +2,7 @@
   {
     "id": "bubble-sort",
     "name": "Bubble Sort",
-    "image": "./public/images/bubble-sort.jpg",
+    "image": "/images/bubble-sort.jpg",
     "category": "Sorting",
     "difficulty": "Beginner",
     "description": "A simple comparison-based sorting algorithm.",
@@ -16,7 +16,7 @@
   {
     "id": "merge-sort",
     "name": "Merge Sort",
-    "image": "./public/images/merge-sort.jpg",
+    "image": "/images/merge-sort.jpg",
     "category": "Sorting",
     "difficulty": "Intermediate",
     "description": "A stable, divide-and-conquer sorting algorithm that recursively splits the array and merges sorted subarrays.",
@@ -30,7 +30,7 @@
   {
     "id": "quick-sort",
     "name": "Quick Sort",
-    "image": "./public/images/quick-sort.jpg",
+    "image": "/images/quick-sort.jpg",
     "category": "Sorting",
     "difficulty": "Intermediate",
     "description": "An efficient, comparison-based sorting algorithm that partitions the array around a pivot.",
@@ -44,7 +44,7 @@
   {
     "id": "dijkstra",
     "name": "Dijkstra's Algorithm",
-    "image": "./public/images/dijkstra.jpg",
+    "image": "/images/dijkstra.jpg",
     "category": "Graph",
     "difficulty": "Advanced",
     "description": "An algorithm for finding the shortest paths between nodes in a graph.",
@@ -58,7 +58,7 @@
   {
     "id": "fibonacci-recursion",
     "name": "Fibonacci (Recursion)",
-    "image": "./public/images/fibonacci.jpg",
+    "image": "/images/fibonacci.jpg",
     "category": "Mathematical",
     "difficulty": "Beginner",
     "description": "A simple recursive algorithm to compute Fibonacci numbers.",
@@ -72,7 +72,7 @@
   {
     "id": "binary-search",
     "name": "Binary Search",
-    "image": "./public/images/binary-search.jpg",
+    "image": "/images/binary-search.jpg",
     "category": "Searching",
     "difficulty": "Beginner",
     "description": "An efficient algorithm for finding an item from a sorted list of items.",

@@ -5,9 +5,9 @@ const containers = document.querySelectorAll(
 
 //rutas
 const DATA_PATHS = [
-  "./algorithms.json",
   "/algorithms.json",
-  "./public/algorithms.json"
+  "/algorithms.json",
+  "/public/algorithms.json"
 ];
 
 async function loadData() {
@@ -37,7 +37,7 @@ function getDifficultyClass(difficulty = "") {
 }
 
 function getImagePath(image = "") {
-  return image || "./images/logopng.png";
+  return image || "/images/logopng.png";
 }
 
 function addTextElement(parent, tagName, className, text) {
