@@ -74,14 +74,6 @@ function renderHero(algorithm) {
   chips.className = "detail-chips";
   chips.appendChild(createChip(algorithm.difficulty, `difficulty-badge difficulty-${algorithm.difficulty.toLowerCase()}`));
 
-  if (algorithm.status) {
-    chips.appendChild(createChip(algorithm.status, "algo-status"));
-  }
-
-  if (algorithm.visualizable) {
-    chips.appendChild(createChip("visualizable"));
-  }
-
   hero.appendChild(chips);
 }
 
