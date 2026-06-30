@@ -50,11 +50,6 @@ function createCard(data) {
   const image = document.createElement("img");
   image.src = getImagePath(data.image);
   image.alt = data.name;
-  image.loading = "lazy";
-  image.onerror = () => {
-    image.onerror = null;
-    image.src = "./images/logopng.png";
-  };
 
   imageWrapper.appendChild(image);
   card.appendChild(imageWrapper);
@@ -62,8 +57,8 @@ function createCard(data) {
   const meta = document.createElement("div");
   meta.className = "algo-card-meta";
 
-  addTextElement(meta, "span", "algo-category", data.category);
   addTextElement(meta, "span", `difficulty-badge ${getDifficultyClass(data.difficulty)}`, data.difficulty);
+  addTextElement(meta, "span", "algo-category", data.category);
 
   if (data.status) {
     addTextElement(meta, "span", "algo-status", data.status);
