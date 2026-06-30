@@ -118,13 +118,6 @@ function createCard(data) {
     );
   }
 
-  addTextElement(
-    card,
-    "span",
-    "algo-link",
-    "Open playground"
-  );
-
   return card;
 }
 

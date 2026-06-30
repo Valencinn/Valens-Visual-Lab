@@ -4,9 +4,6 @@
     "name": "Bubble Sort",
     "image": "./public/images/bubble-sort.jpg",
     "category": "Sorting",
-    "paradigm": [
-      "Brute Force"
-    ],
     "difficulty": "Beginner",
     "description": "A simple comparison-based sorting algorithm.",
     "timeComplexity": {
@@ -14,24 +11,13 @@
       "average": "O(n^2)",
       "worst": "O(n^2)"
     },
-    "spaceComplexity": "O(1)",
-    "stable": true,
-    "inPlace": true,
-    "prerequisites": [
-      "Arrays"
-    ],
-    "visualizable": true,
-    "status": "done"
+    "spaceComplexity": "O(1)"
   },
   {
     "id": "merge-sort",
     "name": "Merge Sort",
     "image": "./public/images/merge-sort.jpg",
     "category": "Sorting",
-    "paradigm": [
-      "Divide and Conquer",
-      "Recursion"
-    ],
     "difficulty": "Intermediate",
     "description": "A stable, divide-and-conquer sorting algorithm that recursively splits the array and merges sorted subarrays.",
     "timeComplexity": {
@@ -39,25 +25,13 @@
       "average": "O(n log n)",
       "worst": "O(n log n)"
     },
-    "spaceComplexity": "O(n)",
-    "stable": true,
-    "inPlace": false,
-    "prerequisites": [
-      "Recursion",
-      "Arrays"
-    ],
-    "visualizable": true,
-    "status": "planned"
+    "spaceComplexity": "O(n)"
   },
   {
     "id": "quick-sort",
     "name": "Quick Sort",
     "image": "./public/images/quick-sort.jpg",
     "category": "Sorting",
-    "paradigm": [
-      "Divide and Conquer",
-      "Recursion"
-    ],
     "difficulty": "Intermediate",
     "description": "An efficient, comparison-based sorting algorithm that partitions the array around a pivot.",
     "timeComplexity": {
@@ -65,24 +39,13 @@
       "average": "O(n log n)",
       "worst": "O(n^2)"
     },
-    "spaceComplexity": "O(log n)",
-    "stable": false,
-    "inPlace": true,
-    "prerequisites": [
-      "Recursion",
-      "Arrays"
-    ],
-    "visualizable": true,
-    "status": "planned"
+    "spaceComplexity": "O(log n)"
   },
   {
     "id": "dijkstra",
     "name": "Dijkstra's Algorithm",
     "image": "./public/images/dijkstra.jpg",
     "category": "Graph",
-    "paradigm": [
-      "Greedy"
-    ],
     "difficulty": "Advanced",
     "description": "An algorithm for finding the shortest paths between nodes in a graph.",
     "timeComplexity": {
@@ -90,24 +53,13 @@
       "average": "O((V + E) log V)",
       "worst": "O((V + E) log V)"
     },
-    "spaceComplexity": "O(V)",
-    "stable": false,
-    "inPlace": false,
-    "prerequisites": [
-      "Graphs",
-      "Priority Queues"
-    ],
-    "visualizable": true,
-    "status": "planned"
+    "spaceComplexity": "O(V)"
   },
   {
     "id": "fibonacci-recursion",
     "name": "Fibonacci (Recursion)",
     "image": "./public/images/fibonacci.jpg",
     "category": "Mathematical",
-    "paradigm": [
-      "Recursion"
-    ],
     "difficulty": "Beginner",
     "description": "A simple recursive algorithm to compute Fibonacci numbers.",
     "timeComplexity": {
@@ -115,23 +67,13 @@
       "average": "O(2^n)",
       "worst": "O(2^n)"
     },
-    "spaceComplexity": "O(n)",
-    "stable": false,
-    "inPlace": false,
-    "prerequisites": [
-      "Recursion"
-    ],
-    "visualizable": false,
-    "status": "done"
+    "spaceComplexity": "O(n)"
   },
   {
     "id": "binary-search",
     "name": "Binary Search",
     "image": "./public/images/binary-search.jpg",
     "category": "Searching",
-    "paradigm": [
-      "Divide and Conquer"
-    ],
     "difficulty": "Beginner",
     "description": "An efficient algorithm for finding an item from a sorted list of items.",
     "timeComplexity": {
@@ -139,14 +81,6 @@
       "average": "O(log n)",
       "worst": "O(log n)"
     },
-    "spaceComplexity": "O(1)",
-    "stable": false,
-    "inPlace": true,
-    "prerequisites": [
-      "Arrays",
-      "Sorting"
-    ],
-    "visualizable": true,
-    "status": "done"
+    "spaceComplexity": "O(1)"
   }
 ]
