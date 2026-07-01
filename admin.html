@@ -34,7 +34,7 @@
         </div>
     </header>
 
-    <main class="hero-admin container">
+    <main class="hero-admin container admin-hero">
         <h1 class="hero-title">Administration</h1>
         <p class="hero-sub">
             Manage users and algorithms. This area is restricted to administrators.
@@ -46,8 +46,8 @@
             <h3 class="mb-md">Admin login</h3>
 
             <div class="flex gap-sm flex-wrap">
-                <input id="email" type="email" placeholder="Email" class="p-sm rounded" />
-                <input id="password" type="password" placeholder="Password" class="p-sm rounded" />
+                <input id="email" type="email" placeholder="Email" class="p-sm rounded input-modern" />
+                <input id="password" type="password" placeholder="Password" class="p-sm rounded input-modern" />
                 <button id="loginBtn" class="btn primary">
                     Login
                 </button>
@@ -61,8 +61,8 @@
             </p>
         </section>
 
-        <section id="adminPanel" class="mt-lg hidden">
-            <div class="flex gap-sm mb-md">
+        <section id="adminPanel" class="mt-lg hidden flex flex-column gap-lg">
+            <div class="admin-toolbar flex gap-sm mb-md flex-wrap">
                 <button id="showUsers" class="btn-ghost">
                     View users
                 </button>
@@ -77,52 +77,55 @@
                 </button>
             </div>
 
-            <div id="list" class="list-linear"></div>
+            <div id="list" class="list-linear admin-list"></div>
+    </div>
 
-            <div id="userForm" class="card mt-md hidden">
-                <h3 id="userFormTitle" class="mb-md">Add User</h3>
-                <form id="userFormElement" class="flex flex-column gap-sm">
-                    <input type="text" id="userName" placeholder="Name" class="p-sm rounded" required />
-                    <input type="email" id="userEmail" placeholder="Email" class="p-sm rounded" required />
-                    <input type="password" id="userPassword" placeholder="Password" class="p-sm rounded" required />
-                    <label class="flex gap-sm">
-                        <input type="checkbox" id="userIsAdmin" />
-                        Is Admin
-                    </label>
-                    <label class="flex gap-sm">
-                        <input type="checkbox" id="userIsSubscribed" />
-                        Is Subscribed
-                    </label>
-                    <div class="flex gap-sm">
-                        <button type="submit" class="btn primary">Save</button>
-                        <button type="button" id="cancelUserForm" class="btn-ghost">Cancel</button>
-                    </div>
-                </form>
+    <div id="userForm" class="card form-panel mt-md hidden">
+        <h3 id="userFormTitle" class="mb-md">Add User</h3>
+        <form id="userFormElement" class="flex flex-column gap-sm">
+            <input type="text" id="userName" placeholder="Name" class="p-sm rounded input-modern" required />
+            <input type="email" id="userEmail" placeholder="Email" class="p-sm rounded input-modern" required />
+            <input type="password" id="userPassword" placeholder="Password" class="p-sm rounded input-modern"
+                required />
+            <label class="flex gap-sm">
+                <input type="checkbox" id="userIsAdmin" />
+                Is Admin
+            </label>
+            <label class="flex gap-sm">
+                <input type="checkbox" id="userIsSubscribed" />
+                Is Subscribed
+            </label>
+            <div class="flex gap-sm">
+                <button type="submit" class="btn primary">Save</button>
+                <button type="button" id="cancelUserForm" class="btn-ghost">Cancel</button>
             </div>
+        </form>
+    </div>
 
-            <div id="algorithmForm" class="card mt-md hidden">
-                <h3 id="algorithmFormTitle" class="mb-md">Add Algorithm</h3>
-                <form id="algorithmFormElement" class="flex flex-column gap-sm">
-                    <input type="text" id="algorithmName" placeholder="Name" class="p-sm rounded" required />
-                    <input type="text" id="algorithmCategory" placeholder="Category" class="p-sm rounded" required />
-                    <select id="algorithmDifficulty" class="p-sm rounded" required>
-                        <option value="">Select Difficulty</option>
-                        <option value="Beginner">Beginner</option>
-                        <option value="Intermediate">Intermediate</option>
-                        <option value="Advanced">Advanced</option>
-                    </select>
-                    <select id="algorithmStatus" class="p-sm rounded" required>
-                        <option value="">Select Status</option>
-                        <option value="done">Done</option>
-                        <option value="planned">Planned</option>
-                    </select>
-                    <div class="flex gap-sm">
-                        <button type="submit" class="btn primary">Save</button>
-                        <button type="button" id="cancelAlgorithmForm" class="btn-ghost">Cancel</button>
-                    </div>
-                </form>
+    <div id="algorithmForm" class="card form-panel mt-md hidden">
+        <h3 id="algorithmFormTitle" class="mb-md">Add Algorithm</h3>
+        <form id="algorithmFormElement" class="flex flex-column gap-sm">
+            <input type="text" id="algorithmName" placeholder="Name" class="p-sm rounded input-modern" required />
+            <input type="text" id="algorithmCategory" placeholder="Category" class="p-sm rounded input-modern"
+                required />
+            <select id="algorithmDifficulty" class="p-sm rounded" required>
+                <option value="">Select Difficulty</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+            <select id="algorithmStatus" class="p-sm rounded" required>
+                <option value="">Select Status</option>
+                <option value="done">Done</option>
+                <option value="planned">Planned</option>
+            </select>
+            <div class="flex gap-sm">
+                <button type="submit" class="btn primary">Save</button>
+                <button type="button" id="cancelAlgorithmForm" class="btn-ghost">Cancel</button>
             </div>
-        </section>
+        </form>
+    </div>
+    </section>
     </div>
 
     <script type="module" src="/src/admin.ts"></script>

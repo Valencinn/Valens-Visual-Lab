@@ -165,6 +165,68 @@
   padding: 0;
 }
 
+/* ---------- Admin ---------- */
+
+.admin-toolbar {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+}
+
+.input-modern {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: white;
+  transition: 0.2s ease;
+}
+
+.input-modern:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, .15);
+  outline: none;
+}
+
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 250px;
+}
+
+.admin-list>* {
+  padding: .85rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-list>*:last-child {
+  border-bottom: none;
+}
+
+.admin-list,
+.form-panel {
+  width: min(900px, 100%);
+  margin-inline: auto;
+}
+
+.form-panel {
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+}
+
+.form-panel h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
 /* ---------- DETALLE ---------- */
 
 .algorithm-detail {
@@ -218,7 +280,7 @@
   line-height: 1.2;
 }
 
-.detail-panel h2 + * {
+.detail-panel h2+* {
   margin-top: 1rem;
 }
 

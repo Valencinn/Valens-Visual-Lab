@@ -1,4 +1,4 @@
-import { getPlaygroundForAlgorithm } from "/algorithm-playgrounds.js";
+import { getPlaygroundForAlgorithm } from "./algorithm-playgrounds"
 
 const DATA_PATHS = ["./algorithms.json", "/algorithms.json", "./public/algorithms.json"];
 const hero = document.getElementById("algorithmHero");
