@@ -1,10 +1,9 @@
 const burgerBtn = document.getElementById("burgerBtn");
 const mobileNav = document.getElementById("mobileNav");
 
-burgerBtn?.addEventListener("click", () => {
-  mobileNav?.classList.toggle("active");
+burgerBtn.addEventListener("click", () => {
+  mobileNav.classList.toggle("active");
 });
-
 //buscamos los containers
 const containers = document.querySelectorAll(
   "[data-algorithms-container], #algorithmsContainer"
