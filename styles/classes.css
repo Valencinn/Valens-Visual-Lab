@@ -241,7 +241,6 @@ body {
 .nav {
   display: flex;
   gap: 0.6rem;
-  align-items: center;
 }
 
 .nav a {
@@ -256,6 +255,23 @@ body {
 .nav a:hover {
   color: var(--text-primary);
   background: rgba(255, 255, 255, 0.02);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 999px;
+  transition: .2s ease;
 }
 
 /* Hero */
@@ -490,5 +506,36 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem
+  }
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+    z-index: 1001;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: 18px;
+    background: rgba(15, 15, 15, .96);
+    border: 1px solid rgba(255, 255, 255, .08);
+    min-width: 220px;
+    display: none;
+  }
+
+  .mobile-nav.active {
+    display: flex;
+  }
+
+  .mobile-nav .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
