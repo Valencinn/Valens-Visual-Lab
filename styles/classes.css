@@ -261,17 +261,12 @@ body {
   display: none;
   flex-direction: column;
   gap: 6px;
+  padding: 8px;
+  font-size: 2rem;
   background: transparent;
   border: none;
   cursor: pointer;
-}
-
-.burger span {
-  width: 28px;
-  height: 3px;
-  background: white;
-  border-radius: 999px;
-  transition: .2s ease;
+  color: white;
 }
 
 /* Hero */
