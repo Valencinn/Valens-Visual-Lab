@@ -393,3 +393,48 @@
     min-height: 360px;
   }
 }
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-sub {
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .main-grid {
+    gap: 1.25rem;
+  }
+
+  .content {
+    min-height: auto;
+    gap: 1rem;
+  }
+
+  .sidebar {
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .container.mt-lg {
+    margin-top: 1.5rem;
+  }
+
+  .container.mt-md {
+    margin-top: 1rem;
+  }
+
+}
