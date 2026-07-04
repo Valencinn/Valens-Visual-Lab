@@ -227,6 +227,57 @@
   margin-bottom: 1.5rem;
 }
 
+.form-panel input,
+.form-panel select,
+.form-panel textarea {
+  width: 100%;
+}
+
+.login-row input {
+  flex: 1 1 200px;
+}
+
+.form-panel select {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+@media (max-width: 640px) {
+  .form-panel {
+    padding: 1.25rem;
+  }
+
+  .admin-list {
+    padding: 1rem;
+  }
+
+  .admin-toolbar {
+    padding: 0.75rem;
+  }
+
+  .admin-toolbar .btn-ghost {
+    flex: 1 1 calc(50% - 0.5rem);
+    justify-content: center;
+    text-align: center;
+  }
+
+  .login-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .login-row .btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .admin-toolbar .btn-ghost {
+    flex: 1 1 100%;
+  }
+}
+
 /* ---------- DETALLE ---------- */
 
 .algorithm-detail {
