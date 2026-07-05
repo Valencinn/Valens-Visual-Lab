@@ -26,6 +26,14 @@
   line-height: 1.6;
 }
 
+.about-hero {
+  padding-bottom: 2.5rem;
+}
+
+.about-hero+.container {
+  margin-top: 0;
+}
+
 .algorithms-section {
   padding-top: 0;
   padding-bottom: 4rem;
