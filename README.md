@@ -1,30 +1,71 @@
-🔬 Valen's Visual Lab
+# 🚀 Valen's Visual Lab
 
-An interactive web lab for visualizing algorithms, from my personal experience I found really hard trying to explain/teach algorithms to my fellow colleagues at uni.
-This is why I decided to develop this website as a visual way to learn and comprehend algorithms and DSA.
+An interactive platform for learning and visualizing computer science algorithms through interactive animations.
 
-🎮 Overview
+Valen's Visual Lab aims to make algorithms easier to understand by allowing users to explore their execution step by step through intuitive visualizations.
 
-This project implements visual representations of algorithms and DSA theory.
+---
 
-✨ Features
+## ✨ Features
 
-✔️ Minimal website aesthetics
+- 📊 Interactive algorithm playground
+- 📚 Educational explanations
+- 🔍 Search and filter algorithms
+- 📱 Responsive design
 
-✔️ CRUD practice
+---
 
-✔️ Admin/user practice
+## 🛠️ Technologies Used
 
-✔️ Clean project structure
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- TypeScript
 
-✔️ Full frontend experience
+---
 
-🛠️ Technologies Used
+## 🚀 Getting Started
 
-HTML5
+Clone the repository:
 
-TypeScript
+```bash
+git clone https://github.com/Valencinn/Valens-Visual-Lab.git
+```
 
-CSS
+Navigate to the project folder:
 
-JSON
+```bash
+cd Valens-Visual-Lab
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open your browser and visit:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Valentin Sierra**
+
+GitHub: https://github.com/Valencinn
