@@ -1,6 +1,9 @@
-import { getPlaygroundForAlgorithm } from "./algorithm-playgrounds"
+import { getPlaygroundForAlgorithm } from "./algorithm-playgrounds";
 
+//para q cargue de algorithms.json, lo dejo asi pq a veces no funciona bien con solo uno
 const DATA_PATHS = ["./algorithms.json", "/algorithms.json", "./public/algorithms.json"];
+
+//dom management
 const hero = document.getElementById("algorithmHero");
 const stepsContainer = document.getElementById("algorithmSteps");
 const complexityGrid = document.getElementById("complexityGrid");
@@ -10,11 +13,13 @@ const outputPanel = document.getElementById("codeOutput");
 const runButton = document.getElementById("runCode");
 const resetButton = document.getElementById("resetCode");
 
+//variables de stado para los web workers del playground
 let starterCode = "";
 let activeWorker = null;
 let activeWorkerUrl = "";
 let activeTimeout = null;
 
+/*fetch del json */
 async function loadAlgorithms() {
   for (const path of DATA_PATHS) {
     try {
@@ -31,11 +36,13 @@ async function loadAlgorithms() {
   return [];
 }
 
+/*obtiene el id del algoritmo desde la URL. va como parametro ?id= y el hash x si acaso pero todavia no funciono asi creo?*/
 function getRequestedAlgorithmId() {
   const params = new URLSearchParams(window.location.search);
   return params.get("id") || window.location.hash.replace("#", "");
 }
 
+/*creea un elemento html con texto y lo agrega a un contenedor*/
 function addTextElement(parent, tagName, className, text) {
   const element = document.createElement(tagName);
 
@@ -48,6 +55,7 @@ function addTextElement(parent, tagName, className, text) {
   return element;
 }
 
+/*en el caso de no encontrar algoritmo llena la data con esto*/
 function renderNotFound() {
   hero.innerHTML = "";
   addTextElement(hero, "p", "detail-eyebrow", "Algorithm not found");
@@ -56,6 +64,7 @@ function renderNotFound() {
   document.querySelector(".detail-layout")?.classList.add("hidden");
 }
 
+/* chip reutilizable para meter info*/
 function createChip(text, className = "algo-category") {
   const chip = document.createElement("span");
   chip.className = className;
@@ -63,6 +72,7 @@ function createChip(text, className = "algo-category") {
   return chip;
 }
 
+/* render del hero de algorithm*/
 function renderHero(algorithm) {
   hero.innerHTML = "";
 
@@ -72,11 +82,17 @@ function renderHero(algorithm) {
 
   const chips = document.createElement("div");
   chips.className = "detail-chips";
-  chips.appendChild(createChip(algorithm.difficulty, `difficulty-badge difficulty-${algorithm.difficulty.toLowerCase()}`));
+  chips.appendChild(
+    createChip(
+      algorithm.difficulty,
+      `difficulty-badge difficulty-${algorithm.difficulty.toLowerCase()}`
+    )
+  );
 
   hero.appendChild(chips);
 }
 
+/*carga la data en las boxes*/
 function renderSteps(steps) {
   stepsContainer.innerHTML = "";
 
@@ -101,6 +117,7 @@ function addComplexity(label, value) {
   complexityGrid.appendChild(item);
 }
 
+/*renderiza la .timeComplexity de cada algoritm*/
 function renderComplexity(algorithm) {
   complexityGrid.innerHTML = "";
   addComplexity("Best", algorithm.timeComplexity?.best || "N/A");
@@ -109,6 +126,7 @@ function renderComplexity(algorithm) {
   addComplexity("Space", algorithm.spaceComplexity || "N/A");
 }
 
+/*hace que sea texto para que pase x el playground*/
 function formatWorkerValue(value) {
   if (typeof value === "string") return value;
 
@@ -119,6 +137,10 @@ function formatWorkerValue(value) {
   }
 }
 
+/**
+ * Genera el código fuente del Web Worker encargado
+ * de ejecutar el código del usuario de forma aislada.
+ */
 function getWorkerSource() {
   return `
 const formatValue = ${formatWorkerValue.toString()};
@@ -147,6 +169,8 @@ self.onmessage = (event) => {
 };`;
 }
 
+/* finaliza el worker activo
+ */
 function stopActiveWorker() {
   if (activeWorker) {
     activeWorker.terminate();
@@ -165,6 +189,8 @@ function stopActiveWorker() {
   activeTimeout = null;
 }
 
+/* finaliza el web worker
+ */
 function finishWorker(worker, workerUrl) {
   if (activeWorker === worker) {
     stopActiveWorker();
@@ -176,9 +202,12 @@ function finishWorker(worker, workerUrl) {
   runButton.disabled = false;
 }
 
+/* runCode es la funcion q ejecuta el codigo puesto en la box de codigo! */
 function runCode() {
   const code = codeEditor.value;
-  const workerUrl = URL.createObjectURL(new Blob([getWorkerSource()], { type: "text/javascript" }));
+  const workerUrl = URL.createObjectURL(
+    new Blob([getWorkerSource()], { type: "text/javascript" })
+  );
   const worker = new Worker(workerUrl);
   const lines = [];
 
@@ -190,6 +219,7 @@ function runCode() {
   outputPanel.textContent = "Running...";
   runButton.disabled = true;
 
+  //esto es buena praxis basicamente, evita que el cpu siga corriendo xq sigue corriendo el codigo del usuario
   activeTimeout = window.setTimeout(() => {
     outputPanel.textContent = "Execution stopped: timeout.";
     finishWorker(worker, workerUrl);
@@ -224,11 +254,13 @@ function runCode() {
   worker.postMessage(code);
 }
 
+/*reset del playground*/
 function resetCode() {
   codeEditor.value = starterCode;
   runCode();
 }
 
+/* init carga los algos, busca el /url, render de la info y setea el playground*/
 async function init() {
   const requestedId = getRequestedAlgorithmId();
   const algorithms = await loadAlgorithms();
@@ -243,6 +275,7 @@ async function init() {
   starterCode = playground.code;
 
   document.title = `${algorithm.name} Playground`;
+
   renderHero(algorithm);
   renderSteps(playground.steps);
   renderComplexity(algorithm);
@@ -252,7 +285,9 @@ async function init() {
 
   runButton.addEventListener("click", runCode);
   resetButton.addEventListener("click", resetCode);
+
   runCode();
 }
 
+//corremos la app
 init();
