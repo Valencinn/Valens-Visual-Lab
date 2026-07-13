@@ -1,6 +1,5 @@
 export const PLAYGROUNDS = {
   "bubble-sort": {
-    language: "JavaScript",
     steps: [
       "Compare each pair of neighbors.",
       "Swap them when the left value is greater than the right value.",
@@ -30,7 +29,6 @@ export const PLAYGROUNDS = {
 console.log("Sorted:", bubbleSort([5, 1, 4, 2, 8]));`
   },
   "merge-sort": {
-    language: "JavaScript",
     steps: [
       "Split the array into two halves.",
       "Sort each half recursively.",
@@ -69,7 +67,6 @@ function mergeSort(values) {
 console.log("Sorted:", mergeSort([9, 3, 7, 1, 6, 2]));`
   },
   "quick-sort": {
-    language: "JavaScript",
     steps: [
       "Pick a pivot value.",
       "Partition values lower and greater than the pivot.",
@@ -96,7 +93,6 @@ console.log("Sorted:", mergeSort([9, 3, 7, 1, 6, 2]));`
 console.log("Sorted:", quickSort([8, 4, 7, 3, 9, 2, 6]));`
   },
   dijkstra: {
-    language: "JavaScript",
     steps: [
       "Start with distance 0 for the source node.",
       "Always expand the unvisited node with the smallest known distance.",
@@ -146,7 +142,6 @@ function dijkstra(graph, start) {
 console.log(dijkstra(graph, "A"));`
   },
   "fibonacci-recursion": {
-    language: "JavaScript",
     steps: [
       "Return n directly for the base cases 0 and 1.",
       "For larger n, solve fibonacci(n - 1) and fibonacci(n - 2).",
@@ -163,7 +158,6 @@ for (let n = 0; n <= 8; n++) {
 }`
   },
   "binary-search": {
-    language: "JavaScript",
     steps: [
       "Keep left and right boundaries around the search range.",
       "Check the middle value.",
@@ -194,7 +188,6 @@ console.log("Found at index:", binarySearch(numbers, 23));`
 
 export function getPlaygroundForAlgorithm(id) {
   return PLAYGROUNDS[id] || {
-    language: "JavaScript",
     steps: [
       "Read the algorithm metadata.",
       "Write an implementation.",

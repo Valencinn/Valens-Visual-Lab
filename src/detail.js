@@ -137,10 +137,7 @@ function formatWorkerValue(value) {
   }
 }
 
-/**
- * Genera el código fuente del Web Worker encargado
- * de ejecutar el código del usuario de forma aislada.
- */
+/*Genera el código fuente del Web Worker encargado*/
 function getWorkerSource() {
   return `
 const formatValue = ${formatWorkerValue.toString()};
@@ -169,8 +166,7 @@ self.onmessage = (event) => {
 };`;
 }
 
-/* finaliza el worker activo
- */
+/* finaliza el worker activo*/
 function stopActiveWorker() {
   if (activeWorker) {
     activeWorker.terminate();
