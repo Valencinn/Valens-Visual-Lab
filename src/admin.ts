@@ -15,7 +15,6 @@ type Algorithm = {
     name: string
     category: string
     difficulty: string
-    status?: string
 }
 //que sea array para poder agregar y eliminar
 let users: User[] = []
@@ -99,7 +98,7 @@ function renderAlgorithms() {
         const div = document.createElement("div")
         div.innerHTML = `
       <strong>${algo.name}</strong>
-      (${algo.category} - ${algo.difficulty}${algo.status ? ` - ${algo.status}` : ''})
+      (${algo.category} - ${algo.difficulty})
       <button class="edit-btn">Editar</button>
       <button class="delete-btn">Borrar</button>
     `
@@ -174,7 +173,6 @@ function showAlgorithmForm(algo?: Algorithm) {
             ; (document.getElementById("algorithmName") as HTMLInputElement).value = algo.name
             ; (document.getElementById("algorithmCategory") as HTMLInputElement).value = algo.category
             ; (document.getElementById("algorithmDifficulty") as HTMLSelectElement).value = algo.difficulty
-            ; (document.getElementById("algorithmStatus") as HTMLSelectElement).value = algo.status || ""
     } else {
         editingAlgorithm = null
         title.textContent = "Add Algorithm"
@@ -253,13 +251,11 @@ function editAlgorithm(id: string) {
     const name = (document.getElementById("algorithmName") as HTMLInputElement).value;
     const category = (document.getElementById("algorithmCategory") as HTMLInputElement).value;
     const difficulty = (document.getElementById("algorithmDifficulty") as HTMLSelectElement).value;
-    const status = (document.getElementById("algorithmStatus") as HTMLSelectElement).value;
 
     if (editingAlgorithm) {
         editingAlgorithm.name = name;
         editingAlgorithm.category = category;
         editingAlgorithm.difficulty = difficulty;
-        editingAlgorithm.status = status;
 
         console.log({
             action: "EDIT_ALGORITHM",
@@ -272,8 +268,7 @@ function editAlgorithm(id: string) {
             id: String(algorithms.length + 1),
             name,
             category,
-            difficulty,
-            status
+            difficulty
         });
 
         console.log({
