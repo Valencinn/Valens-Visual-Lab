@@ -200,5 +200,90 @@ function editAlgorithm(id: string) {
     if (algo) showAlgorithmForm(algo)
 }
 
+//user form
 
+(document.getElementById("userFormElement") as HTMLFormElement).addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = (document.getElementById("userName") as HTMLInputElement).value;
+    const email = (document.getElementById("userEmail") as HTMLInputElement).value;
+    const password = (document.getElementById("userPassword") as HTMLInputElement).value;
+    const isAdmin = (document.getElementById("userIsAdmin") as HTMLInputElement).checked;
+    const isSubscribed = (document.getElementById("userIsSubscribed") as HTMLInputElement).checked;
+
+    if (editingUser) {
+        editingUser.name = name;
+        editingUser.email = email;
+        editingUser.password = password;
+        editingUser.isAdmin = isAdmin;
+        editingUser.isSubscribed = isSubscribed;
+
+        console.log({
+            action: "EDIT_USER",
+            adminId: currentAdmin!.id,
+            targetUserId: editingUser.id,
+            date: new Date().toISOString()
+        });
+    } else {
+        users.push({
+            id: String(users.length + 1),
+            name,
+            email,
+            password,
+            isAdmin,
+            isSubscribed,
+            registerDate: new Date().toISOString(),
+            likedPostIDs: []
+        });
+
+        console.log({
+            action: "ADD_USER",
+            adminId: currentAdmin!.id,
+            date: new Date().toISOString()
+        });
+    }
+
+    hideUserForm();
+    renderUsers();
+});
+
+(document.getElementById("algorithmFormElement") as HTMLFormElement).addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = (document.getElementById("algorithmName") as HTMLInputElement).value;
+    const category = (document.getElementById("algorithmCategory") as HTMLInputElement).value;
+    const difficulty = (document.getElementById("algorithmDifficulty") as HTMLSelectElement).value;
+    const status = (document.getElementById("algorithmStatus") as HTMLSelectElement).value;
+
+    if (editingAlgorithm) {
+        editingAlgorithm.name = name;
+        editingAlgorithm.category = category;
+        editingAlgorithm.difficulty = difficulty;
+        editingAlgorithm.status = status;
+
+        console.log({
+            action: "EDIT_ALGORITHM",
+            adminId: currentAdmin!.id,
+            targetAlgorithmId: editingAlgorithm.id,
+            date: new Date().toISOString()
+        });
+    } else {
+        algorithms.push({
+            id: String(algorithms.length + 1),
+            name,
+            category,
+            difficulty,
+            status
+        });
+
+        console.log({
+            action: "ADD_ALGORITHM",
+            adminId: currentAdmin!.id,
+            date: new Date().toISOString()
+        });
+    }
+
+    hideAlgorithmForm();
+    renderAlgorithms();
+});
 
