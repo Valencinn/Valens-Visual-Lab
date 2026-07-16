@@ -54,7 +54,7 @@ http://localhost:5173
 
 ## ⚙️ Demo: Web Worker
 
-Proba en cualquier algoritmo este codigo que deberia crashear un editor de codigo.
+Proba en cualquier algoritmo este codigo que deberia crashear un editor de codigo. Como trabaja con web workers no va a pasar chill.
 
 ```javascript
 let result = 0;
