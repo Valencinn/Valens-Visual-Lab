@@ -1,71 +1,80 @@
 # 🚀 Valen's Visual Lab
 
-An interactive platform for learning and visualizing computer science algorithms through interactive animations.
+Una plataforma interactiva para aprender y visualizar algoritmos de ciencias de la computación a través de animaciones paso a paso.
 
-Valen's Visual Lab aims to make algorithms easier to understand by allowing users to explore their execution step by step through intuitive visualizations.
-
----
+Valen's Visual Lab busca hacer que los algoritmos sean más fáciles de entender, permitiendo a los usuarios explorar su ejecución de forma visual e intuitiva.
 
 ## ✨ Features
 
-- 📊 Interactive algorithm playground
-- 📚 Educational explanations
-- 🔍 Search and filter algorithms
-- 📱 Responsive design
+- 📊 Playground interactivo de algoritmos
+- 📚 Explicaciones educativas
+- 🔍 Búsqueda y filtro de algoritmos
+- 📱 Diseño responsive
+- ⚙️ Demo de **Web Workers** para comparar ejecución en el hilo principal vs. en un hilo aparte
 
----
-
-## 🛠️ Technologies Used
+## 🛠️ Tecnologías usadas
 
 - HTML5
 - CSS3
 - JavaScript (ES6+)
 - TypeScript
-
----
+- Web Workers API
 
 ## 🚀 Getting Started
 
-Clone the repository:
+Clonar el repositorio:
 
 ```bash
 git clone https://github.com/Valencinn/Valens-Visual-Lab.git
 ```
 
-Navigate to the project folder:
+Entrar a la carpeta del proyecto:
 
 ```bash
 cd Valens-Visual-Lab
 ```
 
-Install the dependencies:
+Instalar las dependencias:
 
 ```bash
 npm install
 ```
 
-Start the development server:
+Levantar el servidor de desarrollo:
 
 ```bash
 npm run dev
 ```
 
-Then open your browser and visit:
+Abrir en el navegador:
 
 ```
 http://localhost:5173
 ```
 
----
+## ⚙️ Demo: Web Worker
+
+Proba en cualquier algoritmo este codigo que deberia crashear un editor de codigo.
+
+```javascript
+let result = 0;
+
+for (let i = 0; i < 50_000_000_000; i++) {
+    result += Math.sqrt(i);
+
+    if (i % 100_000_000 === 0) {
+        postMessage(`Progress: ${((i / 50_000_000_000) * 100).toFixed(2)}%`);
+    }
+}
+
+postMessage(result);
+```
 
 ## 📄 License
 
-This project is licensed under the MIT License.
-
----
+Este proyecto está bajo la licencia MIT.
 
 ## 👨‍💻 Author
 
-**Valentin Sierra**
-
-GitHub: https://github.com/Valencinn
+**Valentín Sierra**
+GitHub: [https://github.com/Valencinn](https://github.com/Valencinn)
