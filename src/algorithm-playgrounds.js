@@ -1,3 +1,8 @@
+/*esto es para q el codigo del usuario se ejecute en un web worker, lo que hace esto es llenar 
+la caja del editor de codigo con el codigo del algoritmo seleccionado y los pasos a seguir para implementarlo,
+ademas de q el codigo del usuario se ejecute en el web worker
+*/
+
 export const PLAYGROUNDS = {
   "bubble-sort": {
     steps: [

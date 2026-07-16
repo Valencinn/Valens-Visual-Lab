@@ -1,3 +1,5 @@
+//en app tengo la carga de los algoritmos y la creacion de las cards y del menu hamburguesa
+
 const burgerBtn = document.getElementById("burgerBtn");
 const mobileNav = document.getElementById("mobileNav");
 
