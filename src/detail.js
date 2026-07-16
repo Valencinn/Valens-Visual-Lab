@@ -1,3 +1,8 @@
+/*el editor de codigo funciona con un web worker, para q no se cuelgue la pagina si el codigo del usuario es malo, 
+un web worker es un hilo de ejecucion separado, un web worker se arma con un blob (un archivo)
+que contiene el codigo q va a correr y se le manda el codigo del usuario con postMessage y el worker devuelve los logs con postMessage tambien
+*/
+
 import { getPlaygroundForAlgorithm } from "./algorithm-playgrounds";
 
 //para q cargue de algorithms.json, lo dejo asi pq a veces no funciona bien con solo uno
@@ -185,8 +190,7 @@ function stopActiveWorker() {
   activeTimeout = null;
 }
 
-/* finaliza el web worker
- */
+/* finaliza el web worker*/
 function finishWorker(worker, workerUrl) {
   if (activeWorker === worker) {
     stopActiveWorker();
